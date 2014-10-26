@@ -42,6 +42,8 @@ import QuartzCore
 		}
 	}
 	
+	// MARK: Public Methods
+
 	func loadSVG(fromFileURL fileURL:NSURL) {
 		// create a new scene
 		let scene = SCNScene()
@@ -85,16 +87,22 @@ import QuartzCore
 		self.addGestureRecognizer(rotateRecognizer)
 	}
 	
-	func handleTap(recognizer: UITapGestureRecognizer) {
+	// MARK: Actions
+
+	@IBAction func handleTap(recognizer: UITapGestureRecognizer) {
 		let position:SCNVector3 = self.cameraNode!.position
+		var newPosition:SCNVector3
 		
-		UIView.animateWithDuration(2,
-			delay: 0,
-			options: UIViewAnimationOptions.CurveEaseOut,
-			animations: {
-				self.cameraNode!.position = SCNVector3Make(position.x, position.y, 1)
-			},
-			completion: nil)
+		if position.z <= 1 {
+			newPosition = SCNVector3Make(position.x, position.y, 3)
+		} else {
+			newPosition = SCNVector3Make(position.x, position.y, 1)
+		}
+		
+		SCNTransaction.begin()
+		SCNTransaction.setAnimationDuration(0.3)
+		self.cameraNode!.position = newPosition
+		SCNTransaction.commit()
 	}
 	
 	@IBAction func handlePan(recognizer:UIPanGestureRecognizer) {
@@ -105,8 +113,7 @@ import QuartzCore
 	}
 	
 	@IBAction func handlePinch(recognizer : UIPinchGestureRecognizer) {
-		recognizer.view!.transform = CGAffineTransformScale(recognizer.view!.transform,
-			recognizer.scale, recognizer.scale)
+		recognizer.view!.transform = CGAffineTransformScale(recognizer.view!.transform, recognizer.scale, recognizer.scale)
 		recognizer.scale = 1
 	}
  
@@ -115,6 +122,8 @@ import QuartzCore
 		recognizer.rotation = 0
 	}
 	
+	// MARK: UIGestureRecognizerDelegate
+
 	func gestureRecognizer(UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer:UIGestureRecognizer) -> Bool {
 		return true
 	}
