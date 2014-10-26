@@ -1,0 +1,442 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C346BCA319FC977E00DC8746 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C346BCA219FC977E00DC8746 /* AppDelegate.swift */; };
+		C346BCA519FC977E00DC8746 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C346BCA419FC977E00DC8746 /* art.scnassets */; };
+		C346BCA719FC977E00DC8746 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C346BCA619FC977E00DC8746 /* GameViewController.swift */; };
+		C346BCAA19FC977E00DC8746 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C346BCA819FC977E00DC8746 /* Main.storyboard */; };
+		C346BCAC19FC977E00DC8746 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C346BCAB19FC977E00DC8746 /* Images.xcassets */; };
+		C346BCAF19FC977E00DC8746 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C346BCAD19FC977E00DC8746 /* LaunchScreen.xib */; };
+		C346BCBB19FC977E00DC8746 /* SVGViewer3DTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C346BCBA19FC977E00DC8746 /* SVGViewer3DTests.swift */; };
+		C346BCC719FC97C800DC8746 /* SceneKitRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C346BCC419FC97C800DC8746 /* SceneKitRenderer.swift */; };
+		C346BCC819FC97C800DC8746 /* SVGParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C346BCC519FC97C800DC8746 /* SVGParser.swift */; };
+		C346BCC919FC97C800DC8746 /* SVGViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C346BCC619FC97C800DC8746 /* SVGViewer.swift */; };
+		C346BCCB19FC97D400DC8746 /* test.svg in Resources */ = {isa = PBXBuildFile; fileRef = C346BCCA19FC97D400DC8746 /* test.svg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C346BCB519FC977E00DC8746 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C346BC9519FC977E00DC8746 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C346BC9C19FC977E00DC8746;
+			remoteInfo = SVGViewer3D;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C346BC9D19FC977E00DC8746 /* SVGViewer3D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SVGViewer3D.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C346BCA119FC977E00DC8746 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C346BCA219FC977E00DC8746 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C346BCA419FC977E00DC8746 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
+		C346BCA619FC977E00DC8746 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		C346BCA919FC977E00DC8746 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C346BCAB19FC977E00DC8746 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		C346BCAE19FC977E00DC8746 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		C346BCB419FC977E00DC8746 /* SVGViewer3DTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SVGViewer3DTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C346BCB919FC977E00DC8746 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C346BCBA19FC977E00DC8746 /* SVGViewer3DTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGViewer3DTests.swift; sourceTree = "<group>"; };
+		C346BCC419FC97C800DC8746 /* SceneKitRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneKitRenderer.swift; sourceTree = "<group>"; };
+		C346BCC519FC97C800DC8746 /* SVGParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVGParser.swift; sourceTree = "<group>"; };
+		C346BCC619FC97C800DC8746 /* SVGViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVGViewer.swift; sourceTree = "<group>"; };
+		C346BCCA19FC97D400DC8746 /* test.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.svg; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C346BC9A19FC977E00DC8746 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C346BCB119FC977E00DC8746 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C346BC9419FC977E00DC8746 = {
+			isa = PBXGroup;
+			children = (
+				C346BC9F19FC977E00DC8746 /* SVGViewer3D */,
+				C346BCB719FC977E00DC8746 /* SVGViewer3DTests */,
+				C346BC9E19FC977E00DC8746 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C346BC9E19FC977E00DC8746 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C346BC9D19FC977E00DC8746 /* SVGViewer3D.app */,
+				C346BCB419FC977E00DC8746 /* SVGViewer3DTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C346BC9F19FC977E00DC8746 /* SVGViewer3D */ = {
+			isa = PBXGroup;
+			children = (
+				C346BCA219FC977E00DC8746 /* AppDelegate.swift */,
+				C346BCA419FC977E00DC8746 /* art.scnassets */,
+				C346BCA619FC977E00DC8746 /* GameViewController.swift */,
+				C346BCC419FC97C800DC8746 /* SceneKitRenderer.swift */,
+				C346BCC519FC97C800DC8746 /* SVGParser.swift */,
+				C346BCC619FC97C800DC8746 /* SVGViewer.swift */,
+				C346BCCA19FC97D400DC8746 /* test.svg */,
+				C346BCA819FC977E00DC8746 /* Main.storyboard */,
+				C346BCAB19FC977E00DC8746 /* Images.xcassets */,
+				C346BCAD19FC977E00DC8746 /* LaunchScreen.xib */,
+				C346BCA019FC977E00DC8746 /* Supporting Files */,
+			);
+			path = SVGViewer3D;
+			sourceTree = "<group>";
+		};
+		C346BCA019FC977E00DC8746 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C346BCA119FC977E00DC8746 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C346BCB719FC977E00DC8746 /* SVGViewer3DTests */ = {
+			isa = PBXGroup;
+			children = (
+				C346BCBA19FC977E00DC8746 /* SVGViewer3DTests.swift */,
+				C346BCB819FC977E00DC8746 /* Supporting Files */,
+			);
+			path = SVGViewer3DTests;
+			sourceTree = "<group>";
+		};
+		C346BCB819FC977E00DC8746 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C346BCB919FC977E00DC8746 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C346BC9C19FC977E00DC8746 /* SVGViewer3D */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C346BCBE19FC977E00DC8746 /* Build configuration list for PBXNativeTarget "SVGViewer3D" */;
+			buildPhases = (
+				C346BC9919FC977E00DC8746 /* Sources */,
+				C346BC9A19FC977E00DC8746 /* Frameworks */,
+				C346BC9B19FC977E00DC8746 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SVGViewer3D;
+			productName = SVGViewer3D;
+			productReference = C346BC9D19FC977E00DC8746 /* SVGViewer3D.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C346BCB319FC977E00DC8746 /* SVGViewer3DTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C346BCC119FC977E00DC8746 /* Build configuration list for PBXNativeTarget "SVGViewer3DTests" */;
+			buildPhases = (
+				C346BCB019FC977E00DC8746 /* Sources */,
+				C346BCB119FC977E00DC8746 /* Frameworks */,
+				C346BCB219FC977E00DC8746 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C346BCB619FC977E00DC8746 /* PBXTargetDependency */,
+			);
+			name = SVGViewer3DTests;
+			productName = SVGViewer3DTests;
+			productReference = C346BCB419FC977E00DC8746 /* SVGViewer3DTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C346BC9519FC977E00DC8746 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Dmitri Fuerle";
+				TargetAttributes = {
+					C346BC9C19FC977E00DC8746 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					C346BCB319FC977E00DC8746 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = C346BC9C19FC977E00DC8746;
+					};
+				};
+			};
+			buildConfigurationList = C346BC9819FC977E00DC8746 /* Build configuration list for PBXProject "SVGViewer3D" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C346BC9419FC977E00DC8746;
+			productRefGroup = C346BC9E19FC977E00DC8746 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C346BC9C19FC977E00DC8746 /* SVGViewer3D */,
+				C346BCB319FC977E00DC8746 /* SVGViewer3DTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C346BC9B19FC977E00DC8746 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C346BCAF19FC977E00DC8746 /* LaunchScreen.xib in Resources */,
+				C346BCAC19FC977E00DC8746 /* Images.xcassets in Resources */,
+				C346BCCB19FC97D400DC8746 /* test.svg in Resources */,
+				C346BCA519FC977E00DC8746 /* art.scnassets in Resources */,
+				C346BCAA19FC977E00DC8746 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C346BCB219FC977E00DC8746 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C346BC9919FC977E00DC8746 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C346BCC719FC97C800DC8746 /* SceneKitRenderer.swift in Sources */,
+				C346BCC919FC97C800DC8746 /* SVGViewer.swift in Sources */,
+				C346BCA719FC977E00DC8746 /* GameViewController.swift in Sources */,
+				C346BCA319FC977E00DC8746 /* AppDelegate.swift in Sources */,
+				C346BCC819FC97C800DC8746 /* SVGParser.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C346BCB019FC977E00DC8746 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C346BCBB19FC977E00DC8746 /* SVGViewer3DTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C346BCB619FC977E00DC8746 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C346BC9C19FC977E00DC8746 /* SVGViewer3D */;
+			targetProxy = C346BCB519FC977E00DC8746 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C346BCA819FC977E00DC8746 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C346BCA919FC977E00DC8746 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C346BCAD19FC977E00DC8746 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C346BCAE19FC977E00DC8746 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C346BCBC19FC977E00DC8746 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C346BCBD19FC977E00DC8746 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C346BCBF19FC977E00DC8746 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SVGViewer3D/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C346BCC019FC977E00DC8746 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SVGViewer3D/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C346BCC219FC977E00DC8746 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SVGViewer3DTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SVGViewer3D.app/SVGViewer3D";
+			};
+			name = Debug;
+		};
+		C346BCC319FC977E00DC8746 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SVGViewer3DTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SVGViewer3D.app/SVGViewer3D";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C346BC9819FC977E00DC8746 /* Build configuration list for PBXProject "SVGViewer3D" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C346BCBC19FC977E00DC8746 /* Debug */,
+				C346BCBD19FC977E00DC8746 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C346BCBE19FC977E00DC8746 /* Build configuration list for PBXNativeTarget "SVGViewer3D" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C346BCBF19FC977E00DC8746 /* Debug */,
+				C346BCC019FC977E00DC8746 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C346BCC119FC977E00DC8746 /* Build configuration list for PBXNativeTarget "SVGViewer3DTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C346BCC219FC977E00DC8746 /* Debug */,
+				C346BCC319FC977E00DC8746 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C346BC9519FC977E00DC8746 /* Project object */;
+}
