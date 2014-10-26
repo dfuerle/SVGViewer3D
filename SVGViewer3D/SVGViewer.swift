@@ -10,9 +10,10 @@ import UIKit
 import SceneKit
 import QuartzCore
 
-@objc(DFSVGViewer) class SVGViewer: SCNView {
+@objc(DFSVGViewer) class SVGViewer: SCNView, UIGestureRecognizerDelegate {
 
-/*
+	var cameraNode: SCNNode?
+
 	@IBInspectable var integer: Int = 0
 	@IBInspectable var float: CGFloat = 0
 	@IBInspectable var double: Double = 0
@@ -22,11 +23,6 @@ import QuartzCore
 	@IBInspectable var color: UIColor = UIColor.clearColor()
 	@IBInspectable var string: String = "We ❤ Swift"
 	@IBInspectable var bool: Bool = false
-	
-    init(frame: CGRect) {
-        super.init(frame: frame)
-        // Initialization code
-    }
 	
 	@IBInspectable var borderColor: UIColor = UIColor.clearColor() {
 		didSet {
@@ -45,7 +41,7 @@ import QuartzCore
 			layer.cornerRadius = cornerRadius
 		}
 	}
-*/
+	
 	func loadSVG(fromFileURL fileURL:NSURL) {
 		// create a new scene
 		let scene = SCNScene()
@@ -57,7 +53,7 @@ import QuartzCore
 		scnView.scene = scene
 		
 		// allows the user to manipulate the camera
-		scnView.allowsCameraControl = true
+		//scnView.allowsCameraControl = true
 		
 		// show statistics such as fps and timing information
 		scnView.showsStatistics = true
@@ -68,6 +64,58 @@ import QuartzCore
 		scene.rootNode.addChildNode(renderer.rootNode)
 		println("rootnode \(renderer.rootNode)")
 		scene.rootNode.addChildNode(renderer.cameraNode)
+		self.cameraNode = renderer.cameraNode
 		println("camera \(renderer.cameraNode)")
+		
+		// Gestures
+		let tapRecognizer = UITapGestureRecognizer(target: self, action:Selector("handleTap:"))
+		tapRecognizer.delegate = self
+		self.addGestureRecognizer(tapRecognizer)
+		
+		let panRecognizer = UIPanGestureRecognizer(target: self, action:Selector("handlePan:"))
+		panRecognizer.delegate = self
+		self.addGestureRecognizer(panRecognizer)
+		
+		let pinchRecognizer = UIPinchGestureRecognizer(target: self, action:Selector("handlePinch:"))
+		pinchRecognizer.delegate = self
+		self.addGestureRecognizer(pinchRecognizer)
+
+		let rotateRecognizer = UIRotationGestureRecognizer(target: self, action:Selector("handleRotate:"))
+		rotateRecognizer.delegate = self
+		self.addGestureRecognizer(rotateRecognizer)
+	}
+	
+	func handleTap(recognizer: UITapGestureRecognizer) {
+		let position:SCNVector3 = self.cameraNode!.position
+		
+		UIView.animateWithDuration(2,
+			delay: 0,
+			options: UIViewAnimationOptions.CurveEaseOut,
+			animations: {
+				self.cameraNode!.position = SCNVector3Make(position.x, position.y, 1)
+			},
+			completion: nil)
+	}
+	
+	@IBAction func handlePan(recognizer:UIPanGestureRecognizer) {
+		let translation = recognizer.translationInView(self)
+		let position:SCNVector3 = self.cameraNode!.position
+		self.cameraNode!.position = SCNVector3Make(position.x + Float(translation.x) * -0.01, position.y + Float(translation.y) * 0.01, position.z)
+		recognizer.setTranslation(CGPointZero, inView: self)
+	}
+	
+	@IBAction func handlePinch(recognizer : UIPinchGestureRecognizer) {
+		recognizer.view!.transform = CGAffineTransformScale(recognizer.view!.transform,
+			recognizer.scale, recognizer.scale)
+		recognizer.scale = 1
+	}
+ 
+	@IBAction func handleRotate(recognizer : UIRotationGestureRecognizer) {
+		recognizer.view!.transform = CGAffineTransformRotate(recognizer.view!.transform, recognizer.rotation)
+		recognizer.rotation = 0
+	}
+	
+	func gestureRecognizer(UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer:UIGestureRecognizer) -> Bool {
+		return true
 	}
 }
