@@ -7,16 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C32525A419FD849B006FCD80 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32525A319FD849B006FCD80 /* Extentions.swift */; };
 		C346BCA319FC977E00DC8746 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C346BCA219FC977E00DC8746 /* AppDelegate.swift */; };
 		C346BCA519FC977E00DC8746 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C346BCA419FC977E00DC8746 /* art.scnassets */; };
-		C346BCA719FC977E00DC8746 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C346BCA619FC977E00DC8746 /* GameViewController.swift */; };
+		C346BCA719FC977E00DC8746 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C346BCA619FC977E00DC8746 /* ViewController.swift */; };
 		C346BCAA19FC977E00DC8746 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C346BCA819FC977E00DC8746 /* Main.storyboard */; };
 		C346BCAC19FC977E00DC8746 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C346BCAB19FC977E00DC8746 /* Images.xcassets */; };
 		C346BCAF19FC977E00DC8746 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C346BCAD19FC977E00DC8746 /* LaunchScreen.xib */; };
 		C346BCBB19FC977E00DC8746 /* SVGViewer3DTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C346BCBA19FC977E00DC8746 /* SVGViewer3DTests.swift */; };
-		C346BCC719FC97C800DC8746 /* SceneKitRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C346BCC419FC97C800DC8746 /* SceneKitRenderer.swift */; };
+		C346BCC719FC97C800DC8746 /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C346BCC419FC97C800DC8746 /* Renderer.swift */; };
 		C346BCC819FC97C800DC8746 /* SVGParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C346BCC519FC97C800DC8746 /* SVGParser.swift */; };
-		C346BCC919FC97C800DC8746 /* SVGViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C346BCC619FC97C800DC8746 /* SVGViewer.swift */; };
+		C346BCC919FC97C800DC8746 /* Viewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C346BCC619FC97C800DC8746 /* Viewer.swift */; };
 		C346BCCB19FC97D400DC8746 /* test.svg in Resources */ = {isa = PBXBuildFile; fileRef = C346BCCA19FC97D400DC8746 /* test.svg */; };
 /* End PBXBuildFile section */
 
@@ -31,20 +32,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C32525A319FD849B006FCD80 /* Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		C346BC9D19FC977E00DC8746 /* SVGViewer3D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SVGViewer3D.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C346BCA119FC977E00DC8746 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C346BCA219FC977E00DC8746 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C346BCA419FC977E00DC8746 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		C346BCA619FC977E00DC8746 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		C346BCA619FC977E00DC8746 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C346BCA919FC977E00DC8746 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C346BCAB19FC977E00DC8746 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C346BCAE19FC977E00DC8746 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C346BCB419FC977E00DC8746 /* SVGViewer3DTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SVGViewer3DTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C346BCB919FC977E00DC8746 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C346BCBA19FC977E00DC8746 /* SVGViewer3DTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGViewer3DTests.swift; sourceTree = "<group>"; };
-		C346BCC419FC97C800DC8746 /* SceneKitRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneKitRenderer.swift; sourceTree = "<group>"; };
+		C346BCC419FC97C800DC8746 /* Renderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		C346BCC519FC97C800DC8746 /* SVGParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVGParser.swift; sourceTree = "<group>"; };
-		C346BCC619FC97C800DC8746 /* SVGViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVGViewer.swift; sourceTree = "<group>"; };
+		C346BCC619FC97C800DC8746 /* Viewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Viewer.swift; sourceTree = "<group>"; };
 		C346BCCA19FC97D400DC8746 /* test.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.svg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,10 +91,11 @@
 			children = (
 				C346BCA219FC977E00DC8746 /* AppDelegate.swift */,
 				C346BCA419FC977E00DC8746 /* art.scnassets */,
-				C346BCA619FC977E00DC8746 /* GameViewController.swift */,
-				C346BCC419FC97C800DC8746 /* SceneKitRenderer.swift */,
+				C346BCA619FC977E00DC8746 /* ViewController.swift */,
+				C346BCC419FC97C800DC8746 /* Renderer.swift */,
 				C346BCC519FC97C800DC8746 /* SVGParser.swift */,
-				C346BCC619FC97C800DC8746 /* SVGViewer.swift */,
+				C32525A319FD849B006FCD80 /* Extentions.swift */,
+				C346BCC619FC97C800DC8746 /* Viewer.swift */,
 				C346BCCA19FC97D400DC8746 /* test.svg */,
 				C346BCA819FC977E00DC8746 /* Main.storyboard */,
 				C346BCAB19FC977E00DC8746 /* Images.xcassets */,
@@ -229,9 +232,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C346BCC719FC97C800DC8746 /* SceneKitRenderer.swift in Sources */,
-				C346BCC919FC97C800DC8746 /* SVGViewer.swift in Sources */,
-				C346BCA719FC977E00DC8746 /* GameViewController.swift in Sources */,
+				C346BCC719FC97C800DC8746 /* Renderer.swift in Sources */,
+				C346BCC919FC97C800DC8746 /* Viewer.swift in Sources */,
+				C32525A419FD849B006FCD80 /* Extentions.swift in Sources */,
+				C346BCA719FC977E00DC8746 /* ViewController.swift in Sources */,
 				C346BCA319FC977E00DC8746 /* AppDelegate.swift in Sources */,
 				C346BCC819FC97C800DC8746 /* SVGParser.swift in Sources */,
 			);
@@ -427,6 +431,7 @@
 				C346BCC019FC977E00DC8746 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C346BCC119FC977E00DC8746 /* Build configuration list for PBXNativeTarget "SVGViewer3DTests" */ = {
 			isa = XCConfigurationList;
@@ -435,6 +440,7 @@
 				C346BCC319FC977E00DC8746 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

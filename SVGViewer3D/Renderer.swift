@@ -32,7 +32,6 @@ import OpenGLES
 	// create a 3d box
     func square(x: CFloat, y: CFloat, width: CGFloat, height: CGFloat, length: CGFloat, fill: UIColor?, stroke: UIColor?) {
 		
-		println("square")
 		let geometry = SCNBox(width: width, height: height, length: length, chamferRadius: 0.0)
 		let rectNode = SCNNode(geometry: geometry)
 		let adjustedX:CFloat = x + CFloat(width) * 0.5
@@ -42,35 +41,47 @@ import OpenGLES
 		geometry.firstMaterial = self.materialForColor(fill!)
         self.addNode(rectNode)
         
-//        if let strokeColor = stroke {
-//            let cgPoints:[CGPoint] = [
-//                CGPointMake(x - width, y - height),
-//                CGPointMake(x - width, y + height),
-//                CGPointMake(x + width, y - height),
-//                CGPointMake(x + width, y + height)
-//            ]
-//            linePolygon(cgPoints, strokeColor: strokeColor)
-//        }
+        if let strokeColor = stroke {
+			//println("square missing strokeColor")
+			// TODO: Fix
+			let cgX = CGFloat(x)
+			let cgY = CGFloat(y)
+			
+            let cgPoints:[CGPoint] = [
+                CGPointMake(cgX, cgY),
+                CGPointMake(cgX, cgY - height),
+                CGPointMake(cgX + width, cgY - height),
+                CGPointMake(cgX + width, cgY),
+				CGPointMake(cgX, cgY)
+            ]
+            linePolygon(cgPoints, strokeColor: strokeColor)
+        }
     }
     
     // Draw a line polygon
     func linePolygon(cgPoints: [CGPoint], strokeColor: UIColor) {
 		
-		println("linePolygon")
         var vertices: [SCNVector3] = []
         var indicies: [UInt32] = []
         
         var index:UInt32 = 0
         for point:CGPoint in cgPoints {
-            let ventor3 = SCNVector3Make(CFloat(point.x), CFloat(point.y), 0.0)
-            vertices.append(ventor3)
+			let x:CFloat = CFloat(point.x)
+			let y:CFloat = CFloat(point.y)
+			
+            vertices.append(SCNVector3Make(x, y, 0.0))
             indicies.append(index)
             index = index + 1
         }
-        
+		
+		println("linePolygon ", cgPoints)
+		
         let vertexSoure = SCNGeometrySource(vertices: &vertices, count: vertices.count)
         let data = NSData(bytes: indicies, length: sizeof(UInt32) * indicies.count)
-        let element = SCNGeometryElement(data: data, primitiveType: .Line, primitiveCount: cgPoints.count - 1, bytesPerIndex: sizeof(UInt32))
+        let element = SCNGeometryElement(data: data,
+			primitiveType: SCNGeometryPrimitiveType.Line,
+			primitiveCount: cgPoints.count - 1,
+			bytesPerIndex: sizeof(UInt32))
         let geometry = SCNGeometry(sources: [vertexSoure], elements: [element])
         geometry.firstMaterial = self.materialForColor(strokeColor)
         let lineNode = SCNNode(geometry: geometry)
@@ -80,7 +91,6 @@ import OpenGLES
 	// Create a 3d shape
     func polygon(path: UIBezierPath, extrusionDepth: CGFloat, fill: UIColor?, stroke: UIColor?) {
 		
-		println("polygon")
         if let fillColor = fill {
             let geometry = SCNShape(path: path, extrusionDepth: 0.0)
             let rectNode = SCNNode(geometry: geometry)
@@ -88,13 +98,14 @@ import OpenGLES
             self.addNode(rectNode)
         }
 		if let strokeColor = stroke {
+			//println("polygon missing strokeColor")
+			// TODO:
 		}
 	}
 	
 	// Create a Circle
     func circle(x: Float32, y: Float32, radius: Float32, fill: UIColor) {
 		
-		println("circle")
 		let geometry = SCNCylinder(radius: CGFloat(radius), height: 0.0)
 		let circleNode = SCNNode(geometry: geometry)
 		let adjustedX:CFloat = x + CFloat(radius) * 0.5
@@ -107,7 +118,6 @@ import OpenGLES
 	// Draw text
     func text(matrix: transformMatrix, text: String, fontFamily: String, fontSize: CGFloat, fill: UIColor) {
 		
-		println("text")
 		let geometry = SCNText(string: text, extrusionDepth: 0.0)
 		geometry.firstMaterial = self.materialForColor(fill)
 		geometry.font = UIFont(name: fontFamily, size: fontSize)

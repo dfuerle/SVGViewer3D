@@ -14,6 +14,8 @@ import QuartzCore
 
 	var cameraNode: SCNNode?
 
+	// MARK: IBInspectable
+
 	@IBInspectable var integer: Int = 0
 	@IBInspectable var float: CGFloat = 0
 	@IBInspectable var double: Double = 0
@@ -64,17 +66,17 @@ import QuartzCore
 		let parser = SVGParser(delegate:renderer)
 		parser.parse(fromFileURL: fileURL)
 		scene.rootNode.addChildNode(renderer.rootNode)
-		println("rootnode \(renderer.rootNode)")
 		scene.rootNode.addChildNode(renderer.cameraNode)
 		self.cameraNode = renderer.cameraNode
-		println("camera \(renderer.cameraNode)")
 		
 		// Gestures
-		let tapRecognizer = UITapGestureRecognizer(target: self, action:Selector("handleTap:"))
+		let tapRecognizer = UITapGestureRecognizer(target: self,
+			action:Selector("handleTap:"))
 		tapRecognizer.delegate = self
 		self.addGestureRecognizer(tapRecognizer)
 		
-		let panRecognizer = UIPanGestureRecognizer(target: self, action:Selector("handlePan:"))
+		let panRecognizer = UIPanGestureRecognizer(target: self,
+			action:Selector("handlePan:"))
 		panRecognizer.delegate = self
 		self.addGestureRecognizer(panRecognizer)
 		

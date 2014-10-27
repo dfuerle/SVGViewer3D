@@ -19,7 +19,10 @@ class GameViewController: UIViewController {
 		let url = NSURL(fileURLWithPath: path!)
 		if self.view is SVGViewer {
 			let svgViewer = self.view as SVGViewer
+			let startTime = CFAbsoluteTimeGetCurrent()
 			svgViewer.loadSVG(fromFileURL: url!)
+			let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
+			println("Time elapsed for loadSVG: \(timeElapsed) s")
 		}
     }
 }
