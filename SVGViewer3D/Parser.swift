@@ -55,7 +55,7 @@ protocol MapParserDelegate {
     }
 
     func parser(parser: NSXMLParser!, didStartElement elementName: String!, namespaceURI: String!, qualifiedName qName: String!, attributes attributeDict: NSDictionary!) {
-        
+		
         if elementName == "svg" {
             let width: CFloat = attributeDict.floatValue("width") * factor
             let height: CFloat = attributeDict.floatValue("height") * factor
@@ -82,7 +82,7 @@ protocol MapParserDelegate {
             self.delegate.polygon(path!, extrusionDepth: 0.0, fill: fill, stroke: stroke)
         }
         else if elementName == "path" {
-            let fill: UIColor? = attributeDict.colorValue("fill")
+			let fill: UIColor? = attributeDict.colorValue("fill")
 			let stroke: UIColor? = attributeDict.colorValue("stroke")
 			let strokeWidth: CGFloat = CGFloat(attributeDict.floatValue("stroke-width") * factor)
 			if let path = attributeDict.bezierPathValue("d", factor: factor) {

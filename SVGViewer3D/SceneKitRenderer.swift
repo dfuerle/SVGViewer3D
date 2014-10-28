@@ -61,6 +61,7 @@ import OpenGLES
     // Draw a line polygon
     func linePolygon(cgPoints: [CGPoint], strokeColor: UIColor) {
 		
+		return
         var vertices: [SCNVector3] = []
         var indicies: [UInt32] = []
         
@@ -93,10 +94,13 @@ import OpenGLES
 		
         if let fillColor = fill {
             let geometry = SCNShape(path: path, extrusionDepth: 0.0)
-            let rectNode = SCNNode(geometry: geometry)
+			
+            let polygonNode = SCNNode(geometry: geometry)
+			polygonNode.position = cameraNode.position
             geometry.firstMaterial = self.materialForColor(fillColor)
-            self.addNode(rectNode)
+            self.addNode(polygonNode)
         }
+		
 		if let strokeColor = stroke {
 			//println("polygon missing strokeColor")
 			// TODO:
@@ -110,7 +114,7 @@ import OpenGLES
 		let circleNode = SCNNode(geometry: geometry)
 		let adjustedX:CFloat = x + CFloat(radius) * 0.5
 		let adjustedY:CFloat = y - CFloat(radius) * 0.5
-		circleNode.position = SCNVector3Make(adjustedX, adjustedY, 0.0);
+		circleNode.position = SCNVector3Make(adjustedX, adjustedY, 0.0)
 		geometry.firstMaterial = self.materialForColor(fill)
         self.addNode(circleNode)
 	}

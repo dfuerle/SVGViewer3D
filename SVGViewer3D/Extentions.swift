@@ -51,8 +51,8 @@ extension NSDictionary {
 			let points = valueString!.componentsSeparatedByString(" ")
 			for twoPoint in points {
 				let cleanedTwoPoint = twoPoint.stringByReplacingOccurrencesOfString(" ", withString: "", options: nil, range:nil)
-				if cleanedTwoPoint.isEmpty == false {
-					value.append(cleanedTwoPoint.cgpointValue(factor))
+				if let point = cleanedTwoPoint.cgpointValue(factor) {
+					value.append(point)
 				}
 			}
 		}
@@ -70,26 +70,33 @@ extension NSDictionary {
 			var commandObj:NSString?
 			var directionObj:NSString?
 			var lastPoint:CGPoint = CGPointMake(0, 0)
-			while scanner.scanCharactersFromSet(characterSet, intoString: &commandObj) && scanner.scanUpToCharactersFromSet(characterSet, intoString: &directionObj) {
+			while scanner.scanCharactersFromSet(characterSet, intoString: &commandObj) &&
+				scanner.scanUpToCharactersFromSet(characterSet, intoString: &directionObj) {
 				
 				let command = String(commandObj!)
 				let direction = String(directionObj!)
 				
 				switch command {
 				case "M": // Move
-					lastPoint = direction.cgpointValue(factor)
-					path.moveToPoint(lastPoint)
+					if let nextPoint = direction.cgpointValue(factor) {
+						lastPoint = nextPoint
+						path.moveToPoint(lastPoint)
+					}
 				case "m": // Move (relative)
-					let nextPoint = direction.cgpointValue(factor)
-					lastPoint = CGPointMake(nextPoint.x + lastPoint.x, nextPoint.y + lastPoint.y)
-					path.moveToPoint(lastPoint)
+					if let nextPoint = direction.cgpointValue(factor) {
+						lastPoint = CGPointMake(nextPoint.x + lastPoint.x, nextPoint.y + lastPoint.y)
+						path.moveToPoint(lastPoint)
+					}
 				case "L": // Line
-					lastPoint = direction.cgpointValue(factor)
-					path.addLineToPoint(lastPoint)
+					if let nextPoint = direction.cgpointValue(factor) {
+						lastPoint = nextPoint
+						path.addLineToPoint(lastPoint)
+					}
 				case "l": // Line (relative)
-					let nextPoint = direction.cgpointValue(factor)
-					lastPoint = CGPointMake(nextPoint.x + lastPoint.x, nextPoint.y + lastPoint.y)
-					path.addLineToPoint(lastPoint)
+					if let nextPoint = direction.cgpointValue(factor) {
+						lastPoint = CGPointMake(nextPoint.x + lastPoint.x, nextPoint.y + lastPoint.y)
+						path.addLineToPoint(lastPoint)
+					}
 				case "H": // Horizontal Line
 					lastPoint = CGPointMake(direction.cgfloatValue(factor), lastPoint.y)
 					path.addLineToPoint(lastPoint)
@@ -105,31 +112,31 @@ extension NSDictionary {
 				case "C": // Cubic Bezier Curve
 					let cgfloatArray = direction.cgfloatArray(factor)
 					if cgfloatArray.count == 6 {
-						let controlPoint1 = CGPointMake(cgfloatArray[0], cgfloatArray[1])
-						let controlPoint2 = CGPointMake(cgfloatArray[2], cgfloatArray[3])
-						lastPoint = CGPointMake(cgfloatArray[4], cgfloatArray[5])
+						let controlPoint1 = CGPointMake(cgfloatArray[0], cgfloatArray[1] * -1)
+						let controlPoint2 = CGPointMake(cgfloatArray[2], cgfloatArray[3] * -1)
+						lastPoint = CGPointMake(cgfloatArray[4], cgfloatArray[5] * -1)
 						path.addCurveToPoint(lastPoint, controlPoint1: controlPoint1, controlPoint2: controlPoint2)
 					}
 				case "c": // Cubic Bezier Curve (relative)
 					let cgfloatArray = direction.cgfloatArray(factor)
 					if cgfloatArray.count == 6 {
-						let controlPoint1 = CGPointMake(cgfloatArray[0] + lastPoint.x, cgfloatArray[1] + lastPoint.y)
-						let controlPoint2 = CGPointMake(cgfloatArray[2] + lastPoint.x, cgfloatArray[3] + lastPoint.y)
-						lastPoint = CGPointMake(cgfloatArray[4] + lastPoint.x, cgfloatArray[5] + lastPoint.y)
+						let controlPoint1 = CGPointMake(cgfloatArray[0] + lastPoint.x, cgfloatArray[1] * -1 + lastPoint.y)
+						let controlPoint2 = CGPointMake(cgfloatArray[2] + lastPoint.x, cgfloatArray[3] * -1 + lastPoint.y)
+						lastPoint = CGPointMake(cgfloatArray[4] + lastPoint.x, cgfloatArray[5] + lastPoint.y * -1)
 						path.addCurveToPoint(lastPoint, controlPoint1: controlPoint1, controlPoint2: controlPoint2)
 					}
 				case "S": // Smooth Bezier Curve
 					let cgfloatArray = direction.cgfloatArray(factor)
 					if cgfloatArray.count == 4 {
-						let controlPoint1 = CGPointMake(cgfloatArray[0], cgfloatArray[1])
-						lastPoint = CGPointMake(cgfloatArray[2], cgfloatArray[3])
+						let controlPoint1 = CGPointMake(cgfloatArray[0], cgfloatArray[1] * -1)
+						lastPoint = CGPointMake(cgfloatArray[2], cgfloatArray[3] * -1)
 						path.addQuadCurveToPoint(lastPoint, controlPoint: controlPoint1)
 					}
 				case "s": // Smooth Bezier Curve (relative)
 					let cgfloatArray = direction.cgfloatArray(factor)
 					if cgfloatArray.count == 4 {
-						let controlPoint1 = CGPointMake(cgfloatArray[0] + lastPoint.x, cgfloatArray[1] + lastPoint.y)
-						lastPoint = CGPointMake(cgfloatArray[2] + lastPoint.x, cgfloatArray[3] + lastPoint.y)
+						let controlPoint1 = CGPointMake(cgfloatArray[0] + lastPoint.x, cgfloatArray[1] * -1 + lastPoint.y)
+						lastPoint = CGPointMake(cgfloatArray[2] + lastPoint.x, cgfloatArray[3] * -1 + lastPoint.y)
 						path.addQuadCurveToPoint(lastPoint, controlPoint: controlPoint1)
 					}
 //				case "q": // Quadratic Bezier Curve
@@ -193,16 +200,15 @@ extension String {
 		return CGFloat(value)
 	}
 	
-	func cgpointValue(factor:CFloat) -> CGPoint {
+	func cgpointValue(factor:CFloat) -> CGPoint? {
 		let xy = self.componentsSeparatedByString(",")
 		if xy.count == 2 {
 			let x = xy[0].floatValue() * factor
 			let y = xy[1].floatValue() * factor * -1
 			let point = CGPointMake(CGFloat(x),CGFloat(y))
 			return point
-		} else {
-			return CGPointMake(0, 0)
 		}
+		return nil
 	}
 	
 	func cgfloatArray(factor:CFloat) -> [CGFloat] {
