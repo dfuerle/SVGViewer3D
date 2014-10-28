@@ -12,7 +12,7 @@ import QuartzCore
 import SceneKit
 import OpenGLES
 
-@objc(DFSceneKitRenderer) class SceneKitRenderer : NSObject, SVGParserDelegate {
+@objc(DFSceneKitRenderer) class SceneKitRenderer : SCNView, UIGestureRecognizerDelegate, SVGParserDelegate {
 	
 	let factor: CFloat = 0.001
 	var renderingOrder = 1
@@ -21,6 +21,92 @@ import OpenGLES
     
 	var rootNode = SCNNode()
 	
+	// MARK: Public Methods
+	
+	func loadSVG(fromFileURL fileURL:NSURL) {
+		// create a new scene
+		let scene = SCNScene()
+		
+		// retrieve the SCNView
+		let scnView = self
+		
+		// set the scene to the view
+		scnView.scene = scene
+		
+		// allows the user to manipulate the camera
+		//scnView.allowsCameraControl = true
+		
+		// show statistics such as fps and timing information
+		scnView.showsStatistics = true
+		
+		let parser = SVGParser(delegate:self)
+		parser.parse(fromFileURL: fileURL)
+		scene.rootNode.addChildNode(self.rootNode)
+		scene.rootNode.addChildNode(self.cameraNode)
+		
+		// Gestures
+		let tapRecognizer = UITapGestureRecognizer(target: self,
+			action:Selector("handleTap:"))
+		tapRecognizer.delegate = self
+		self.addGestureRecognizer(tapRecognizer)
+		
+		let panRecognizer = UIPanGestureRecognizer(target: self,
+			action:Selector("handlePan:"))
+		panRecognizer.delegate = self
+		self.addGestureRecognizer(panRecognizer)
+		
+		let pinchRecognizer = UIPinchGestureRecognizer(target: self, action:Selector("handlePinch:"))
+		pinchRecognizer.delegate = self
+		self.addGestureRecognizer(pinchRecognizer)
+		
+		let rotateRecognizer = UIRotationGestureRecognizer(target: self, action:Selector("handleRotate:"))
+		rotateRecognizer.delegate = self
+		self.addGestureRecognizer(rotateRecognizer)
+	}
+	
+	// MARK: Actions
+	
+	@IBAction func handleTap(recognizer: UITapGestureRecognizer) {
+		let position:SCNVector3 = self.cameraNode.position
+		var newPosition:SCNVector3
+		
+		if position.z <= 1 {
+			newPosition = SCNVector3Make(position.x, position.y, 3)
+		} else {
+			newPosition = SCNVector3Make(position.x, position.y, 1)
+		}
+		
+		SCNTransaction.begin()
+		SCNTransaction.setAnimationDuration(0.3)
+		self.cameraNode.position = newPosition
+		SCNTransaction.commit()
+	}
+	
+	@IBAction func handlePan(recognizer:UIPanGestureRecognizer) {
+		let translation = recognizer.translationInView(self)
+		let position:SCNVector3 = self.cameraNode.position
+		self.cameraNode.position = SCNVector3Make(position.x + Float(translation.x) * -0.01, position.y + Float(translation.y) * 0.01, position.z)
+		recognizer.setTranslation(CGPointZero, inView: self)
+	}
+	
+	@IBAction func handlePinch(recognizer : UIPinchGestureRecognizer) {
+		recognizer.view!.transform = CGAffineTransformScale(recognizer.view!.transform, recognizer.scale, recognizer.scale)
+		recognizer.scale = 1
+	}
+ 
+	@IBAction func handleRotate(recognizer : UIRotationGestureRecognizer) {
+		recognizer.view!.transform = CGAffineTransformRotate(recognizer.view!.transform, recognizer.rotation)
+		recognizer.rotation = 0
+	}
+	
+	// MARK: UIGestureRecognizerDelegate
+	
+	func gestureRecognizer(UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer:UIGestureRecognizer) -> Bool {
+		return true
+	}
+	
+	// MARK: SVGParserDelegate
+
     func svg(width: CFloat, height: CFloat) {
         // create and add a camera to the scene
         cameraNode.camera = SCNCamera()

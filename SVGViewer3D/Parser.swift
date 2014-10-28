@@ -29,7 +29,7 @@ protocol SVGParserDelegate {
     func text(matrix: transformMatrix, text: String, fontFamily: String, fontSize: CGFloat, fill: UIColor)
 }
 
-@objc(DFSVGParser) class SVGParser : NSObject, NSXMLParserDelegate {
+class SVGParser : NSObject, NSXMLParserDelegate {
 
     let factor: CFloat = 0.001
     
