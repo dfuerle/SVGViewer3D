@@ -21,7 +21,7 @@ struct transformMatrix {
     var y:CFloat = 0.0
 }
 
-protocol MapParserDelegate {
+protocol SVGParserDelegate {
     func svg(width: CFloat, height: CFloat)
     func square(x: CFloat, y: CFloat, width: CGFloat, height: CGFloat, length: CGFloat, fill: UIColor?, stroke: UIColor?)
     func polygon(path: UIBezierPath, extrusionDepth: CGFloat, fill: UIColor?, stroke: UIColor?)
@@ -38,9 +38,9 @@ protocol MapParserDelegate {
     
     var groupIdentifier: String?
     
-    var delegate: MapParserDelegate
+    var delegate: SVGParserDelegate
     
-    init(delegate:SceneKitRenderer) {
+    init(delegate:SVGParserDelegate) {
         self.delegate = delegate
         
         super.init()

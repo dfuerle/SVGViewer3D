@@ -12,7 +12,7 @@ import QuartzCore
 import SceneKit
 import OpenGLES
 
-@objc(DFSceneKitRenderer) class SceneKitRenderer : NSObject, MapParserDelegate, SCNSceneRendererDelegate, SCNNodeRendererDelegate {
+@objc(DFSceneKitRenderer) class SceneKitRenderer : NSObject, SVGParserDelegate {
 	
 	let factor: CFloat = 0.001
 	var renderingOrder = 1
@@ -20,8 +20,6 @@ import OpenGLES
     var cameraNode = SCNNode()
     
 	var rootNode = SCNNode()
-    
-	var token: dispatch_once_t = 0
 	
     func svg(width: CFloat, height: CFloat) {
         // create and add a camera to the scene

@@ -10,6 +10,9 @@ import UIKit
 import SceneKit
 import QuartzCore
 
+protocol RendererDelegate {
+}
+
 @objc(DFSVGViewer) class SVGViewer: SCNView, UIGestureRecognizerDelegate {
 
 	var cameraNode: SCNNode?
