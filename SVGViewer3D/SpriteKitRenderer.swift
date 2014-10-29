@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-@objc(DFSpriteKitRenderer) class SpriteKitRenderer : SKView, SVGParserDelegate {
+@objc(DFSpriteKitRenderer) class SpriteKitRenderer : SKView, UIGestureRecognizerDelegate, SVGParserDelegate {
 	
 	var cameraNode = SKNode()
 	
@@ -53,18 +53,67 @@ import SpriteKit
 		
 		let parser = SVGParser(delegate:self)
 		parser.parse(fromFileURL: fileURL)
+		
+		// Gestures
+		let tapRecognizer = UITapGestureRecognizer(target: self,
+			action:Selector("handleTap:"))
+		tapRecognizer.delegate = self
+		self.addGestureRecognizer(tapRecognizer)
+		
+		let panRecognizer = UIPanGestureRecognizer(target: self,
+			action:Selector("handlePan:"))
+		panRecognizer.delegate = self
+		self.addGestureRecognizer(panRecognizer)
+		
+		let pinchRecognizer = UIPinchGestureRecognizer(target: self, action:Selector("handlePinch:"))
+		pinchRecognizer.delegate = self
+		self.addGestureRecognizer(pinchRecognizer)
+		
+		let rotateRecognizer = UIRotationGestureRecognizer(target: self, action:Selector("handleRotate:"))
+		rotateRecognizer.delegate = self
+		self.addGestureRecognizer(rotateRecognizer)
 	}
 
+	// MARK: Actions
+	
+	@IBAction func handleTap(recognizer: UITapGestureRecognizer) {
+	}
+	
+	@IBAction func handlePan(recognizer:UIPanGestureRecognizer) {
+		let translation = recognizer.translationInView(self)
+		let position = self.cameraNode.position
+		self.cameraNode.position = CGPointMake(position.x + translation.x * -0.01, position.y + translation.y * 0.01)
+		recognizer.setTranslation(CGPointZero, inView: self)
+	}
+	
+	@IBAction func handlePinch(recognizer : UIPinchGestureRecognizer) {
+		recognizer.view!.transform = CGAffineTransformScale(recognizer.view!.transform, recognizer.scale, recognizer.scale)
+		recognizer.scale = 1
+	}
+ 
+	@IBAction func handleRotate(recognizer : UIRotationGestureRecognizer) {
+		recognizer.view!.transform = CGAffineTransformRotate(recognizer.view!.transform, recognizer.rotation)
+		recognizer.rotation = 0
+	}
+	
+	// MARK: UIGestureRecognizerDelegate
+	
+	func gestureRecognizer(UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer:UIGestureRecognizer) -> Bool {
+		return true
+	}
+	
 	// MARK: SVGParserDelegate
 
 	func svg(width: CFloat, height: CFloat) {
 		
 		// Create and configure the scene.
-		let scene = SKScene(size: CGSizeMake(CGFloat(width), CGFloat(height)))
+		let scene = RendererScene(size: CGSizeMake(CGFloat(width*3), CGFloat(height*3)))
 		scene.scaleMode = SKSceneScaleMode.AspectFill
 		scene.addChild(self.rootNode)
-		scene.addChild(self.cameraNode)
+		self.rootNode.addChild(self.cameraNode)
+		scene.anchorPoint = CGPointMake(0.5, 0.5)
 		self.cameraNode.name = "camera"
+		self.cameraNode.position = CGPointMake(CGFloat(width)/2, CGFloat(height)/2)
 		
 		// Present the scene.
 		self.presentScene(scene)
@@ -84,7 +133,13 @@ import SpriteKit
 	
 	func polygon(path: UIBezierPath, extrusionDepth: CGFloat, fill: UIColor?, stroke: UIColor?) {
 //		let polygon = SKShapeNode(path: path.CGPath)
-//		self.scene!.addChild(polygon)
+//		if let fillColor = fill {
+//			polygon.fillColor = fillColor
+//		}
+//		if let strokeColor = stroke {
+//			polygon.strokeColor = strokeColor
+//		}
+//		self.rootNode.addChild(polygon)
 	}
 	
 	func circle(x: Float32, y: Float32, radius: Float32, fill: UIColor) {
@@ -96,5 +151,18 @@ import SpriteKit
 	
 	func text(matrix: transformMatrix, text: String, fontFamily: String, fontSize: CGFloat, fill: UIColor) {
 		
+	}
+}
+
+class RendererScene : SKScene {
+	
+	override func didFinishUpdate() {
+		if let node = self.childNodeWithName("//camera") {
+			if let parent = node.parent {
+				if let cameraPositionInScene = node.scene?.convertPoint(node.position, fromNode: parent) {
+					parent.position = CGPointMake(parent.position.x - cameraPositionInScene.x, parent.position.y - cameraPositionInScene.y);
+				}
+			}
+		}
 	}
 }
