@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C345A68119FF4D4E002988B1 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C345A67D19FF4D4E002988B1 /* Extentions.swift */; };
-		C345A68219FF4D4E002988B1 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C345A67E19FF4D4E002988B1 /* Parser.swift */; };
-		C345A68319FF4D4E002988B1 /* SceneKitRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C345A67F19FF4D4E002988B1 /* SceneKitRenderer.swift */; };
-		C345A68419FF4D4E002988B1 /* SpriteKitRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C345A68019FF4D4E002988B1 /* SpriteKitRenderer.swift */; };
 		C346BCA319FC977E00DC8746 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C346BCA219FC977E00DC8746 /* AppDelegate.swift */; };
 		C346BCA519FC977E00DC8746 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = C346BCA419FC977E00DC8746 /* art.scnassets */; };
 		C346BCA719FC977E00DC8746 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C346BCA619FC977E00DC8746 /* ViewController.swift */; };
@@ -19,6 +15,15 @@
 		C346BCAF19FC977E00DC8746 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C346BCAD19FC977E00DC8746 /* LaunchScreen.xib */; };
 		C346BCBB19FC977E00DC8746 /* SVGViewer3DTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C346BCBA19FC977E00DC8746 /* SVGViewer3DTests.swift */; };
 		C346BCCB19FC97D400DC8746 /* test.svg in Resources */ = {isa = PBXBuildFile; fileRef = C346BCCA19FC97D400DC8746 /* test.svg */; };
+		C361216C1A180191006B0294 /* SVGViewer.h in Headers */ = {isa = PBXBuildFile; fileRef = C361216B1A180191006B0294 /* SVGViewer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C36121721A180191006B0294 /* SVGViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36121671A180190006B0294 /* SVGViewer.framework */; };
+		C361217B1A180191006B0294 /* SVGViewerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C361217A1A180191006B0294 /* SVGViewerTests.swift */; };
+		C361217E1A180191006B0294 /* SVGViewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36121671A180190006B0294 /* SVGViewer.framework */; };
+		C361217F1A180191006B0294 /* SVGViewer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C36121671A180190006B0294 /* SVGViewer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C36121871A1801EE006B0294 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C345A67D19FF4D4E002988B1 /* Extentions.swift */; };
+		C36121881A1801EE006B0294 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C345A67E19FF4D4E002988B1 /* Parser.swift */; };
+		C36121891A1801EE006B0294 /* SceneKitRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C345A67F19FF4D4E002988B1 /* SceneKitRenderer.swift */; };
+		C361218A1A1801EE006B0294 /* SpriteKitRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C345A68019FF4D4E002988B1 /* SpriteKitRenderer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +34,48 @@
 			remoteGlobalIDString = C346BC9C19FC977E00DC8746;
 			remoteInfo = SVGViewer3D;
 		};
+		C36121731A180191006B0294 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C346BC9519FC977E00DC8746 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C36121661A180190006B0294;
+			remoteInfo = SVGViewer;
+		};
+		C36121751A180191006B0294 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C346BC9519FC977E00DC8746 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C346BC9C19FC977E00DC8746;
+			remoteInfo = SVGViewer3D;
+		};
+		C361217C1A180191006B0294 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C346BC9519FC977E00DC8746 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C36121661A180190006B0294;
+			remoteInfo = SVGViewer;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C36121851A180191006B0294 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C361217F1A180191006B0294 /* SVGViewer.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		C345A67D19FF4D4E002988B1 /* Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
-		C345A67E19FF4D4E002988B1 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
-		C345A67F19FF4D4E002988B1 /* SceneKitRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneKitRenderer.swift; sourceTree = "<group>"; };
-		C345A68019FF4D4E002988B1 /* SpriteKitRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpriteKitRenderer.swift; sourceTree = "<group>"; };
+		C345A67D19FF4D4E002988B1 /* Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Extentions.swift; path = SVGViewer3D/Extentions.swift; sourceTree = SOURCE_ROOT; };
+		C345A67E19FF4D4E002988B1 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Parser.swift; path = SVGViewer3D/Parser.swift; sourceTree = SOURCE_ROOT; };
+		C345A67F19FF4D4E002988B1 /* SceneKitRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneKitRenderer.swift; path = SVGViewer3D/SceneKitRenderer.swift; sourceTree = SOURCE_ROOT; };
+		C345A68019FF4D4E002988B1 /* SpriteKitRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpriteKitRenderer.swift; path = SVGViewer3D/SpriteKitRenderer.swift; sourceTree = SOURCE_ROOT; };
 		C346BC9D19FC977E00DC8746 /* SVGViewer3D.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SVGViewer3D.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C346BCA119FC977E00DC8746 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C346BCA219FC977E00DC8746 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +88,12 @@
 		C346BCB919FC977E00DC8746 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C346BCBA19FC977E00DC8746 /* SVGViewer3DTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGViewer3DTests.swift; sourceTree = "<group>"; };
 		C346BCCA19FC97D400DC8746 /* test.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.svg; sourceTree = "<group>"; };
+		C36121671A180190006B0294 /* SVGViewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SVGViewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C361216A1A180191006B0294 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C361216B1A180191006B0294 /* SVGViewer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SVGViewer.h; sourceTree = "<group>"; };
+		C36121711A180191006B0294 /* SVGViewerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SVGViewerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C36121791A180191006B0294 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C361217A1A180191006B0294 /* SVGViewerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGViewerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C361217E1A180191006B0294 /* SVGViewer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +109,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C36121631A180190006B0294 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C361216E1A180191006B0294 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C36121721A180191006B0294 /* SVGViewer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +135,8 @@
 			children = (
 				C346BC9F19FC977E00DC8746 /* SVGViewer3D */,
 				C346BCB719FC977E00DC8746 /* SVGViewer3DTests */,
+				C36121681A180191006B0294 /* SVGViewer */,
+				C36121771A180191006B0294 /* SVGViewerTests */,
 				C346BC9E19FC977E00DC8746 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -82,6 +146,8 @@
 			children = (
 				C346BC9D19FC977E00DC8746 /* SVGViewer3D.app */,
 				C346BCB419FC977E00DC8746 /* SVGViewer3DTests.xctest */,
+				C36121671A180190006B0294 /* SVGViewer.framework */,
+				C36121711A180191006B0294 /* SVGViewerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,10 +159,6 @@
 				C346BCA419FC977E00DC8746 /* art.scnassets */,
 				C346BCA619FC977E00DC8746 /* ViewController.swift */,
 				C346BCCA19FC97D400DC8746 /* test.svg */,
-				C345A67D19FF4D4E002988B1 /* Extentions.swift */,
-				C345A67E19FF4D4E002988B1 /* Parser.swift */,
-				C345A67F19FF4D4E002988B1 /* SceneKitRenderer.swift */,
-				C345A68019FF4D4E002988B1 /* SpriteKitRenderer.swift */,
 				C346BCA819FC977E00DC8746 /* Main.storyboard */,
 				C346BCAB19FC977E00DC8746 /* Images.xcassets */,
 				C346BCAD19FC977E00DC8746 /* LaunchScreen.xib */,
@@ -130,7 +192,56 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C36121681A180191006B0294 /* SVGViewer */ = {
+			isa = PBXGroup;
+			children = (
+				C361216B1A180191006B0294 /* SVGViewer.h */,
+				C345A67D19FF4D4E002988B1 /* Extentions.swift */,
+				C345A67E19FF4D4E002988B1 /* Parser.swift */,
+				C345A67F19FF4D4E002988B1 /* SceneKitRenderer.swift */,
+				C345A68019FF4D4E002988B1 /* SpriteKitRenderer.swift */,
+				C36121691A180191006B0294 /* Supporting Files */,
+			);
+			path = SVGViewer;
+			sourceTree = "<group>";
+		};
+		C36121691A180191006B0294 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C361216A1A180191006B0294 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C36121771A180191006B0294 /* SVGViewerTests */ = {
+			isa = PBXGroup;
+			children = (
+				C361217A1A180191006B0294 /* SVGViewerTests.swift */,
+				C36121781A180191006B0294 /* Supporting Files */,
+			);
+			path = SVGViewerTests;
+			sourceTree = "<group>";
+		};
+		C36121781A180191006B0294 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C36121791A180191006B0294 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		C36121641A180190006B0294 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C361216C1A180191006B0294 /* SVGViewer.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		C346BC9C19FC977E00DC8746 /* SVGViewer3D */ = {
@@ -140,10 +251,12 @@
 				C346BC9919FC977E00DC8746 /* Sources */,
 				C346BC9A19FC977E00DC8746 /* Frameworks */,
 				C346BC9B19FC977E00DC8746 /* Resources */,
+				C36121851A180191006B0294 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C361217D1A180191006B0294 /* PBXTargetDependency */,
 			);
 			name = SVGViewer3D;
 			productName = SVGViewer3D;
@@ -168,6 +281,43 @@
 			productReference = C346BCB419FC977E00DC8746 /* SVGViewer3DTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		C36121661A180190006B0294 /* SVGViewer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C36121841A180191006B0294 /* Build configuration list for PBXNativeTarget "SVGViewer" */;
+			buildPhases = (
+				C36121621A180190006B0294 /* Sources */,
+				C36121631A180190006B0294 /* Frameworks */,
+				C36121641A180190006B0294 /* Headers */,
+				C36121651A180190006B0294 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SVGViewer;
+			productName = SVGViewer;
+			productReference = C36121671A180190006B0294 /* SVGViewer.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C36121701A180191006B0294 /* SVGViewerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C36121861A180191006B0294 /* Build configuration list for PBXNativeTarget "SVGViewerTests" */;
+			buildPhases = (
+				C361216D1A180191006B0294 /* Sources */,
+				C361216E1A180191006B0294 /* Frameworks */,
+				C361216F1A180191006B0294 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C36121741A180191006B0294 /* PBXTargetDependency */,
+				C36121761A180191006B0294 /* PBXTargetDependency */,
+			);
+			name = SVGViewerTests;
+			productName = SVGViewerTests;
+			productReference = C36121711A180191006B0294 /* SVGViewerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -181,6 +331,13 @@
 						CreatedOnToolsVersion = 6.1;
 					};
 					C346BCB319FC977E00DC8746 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = C346BC9C19FC977E00DC8746;
+					};
+					C36121661A180190006B0294 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					C36121701A180191006B0294 = {
 						CreatedOnToolsVersion = 6.1;
 						TestTargetID = C346BC9C19FC977E00DC8746;
 					};
@@ -201,6 +358,8 @@
 			targets = (
 				C346BC9C19FC977E00DC8746 /* SVGViewer3D */,
 				C346BCB319FC977E00DC8746 /* SVGViewer3DTests */,
+				C36121661A180190006B0294 /* SVGViewer */,
+				C36121701A180191006B0294 /* SVGViewerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -225,6 +384,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C36121651A180190006B0294 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C361216F1A180191006B0294 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -232,12 +405,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C345A68219FF4D4E002988B1 /* Parser.swift in Sources */,
 				C346BCA719FC977E00DC8746 /* ViewController.swift in Sources */,
 				C346BCA319FC977E00DC8746 /* AppDelegate.swift in Sources */,
-				C345A68119FF4D4E002988B1 /* Extentions.swift in Sources */,
-				C345A68419FF4D4E002988B1 /* SpriteKitRenderer.swift in Sources */,
-				C345A68319FF4D4E002988B1 /* SceneKitRenderer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +418,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C36121621A180190006B0294 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C36121871A1801EE006B0294 /* Extentions.swift in Sources */,
+				C36121881A1801EE006B0294 /* Parser.swift in Sources */,
+				C36121891A1801EE006B0294 /* SceneKitRenderer.swift in Sources */,
+				C361218A1A1801EE006B0294 /* SpriteKitRenderer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C361216D1A180191006B0294 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C361217B1A180191006B0294 /* SVGViewerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -256,6 +444,21 @@
 			isa = PBXTargetDependency;
 			target = C346BC9C19FC977E00DC8746 /* SVGViewer3D */;
 			targetProxy = C346BCB519FC977E00DC8746 /* PBXContainerItemProxy */;
+		};
+		C36121741A180191006B0294 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C36121661A180190006B0294 /* SVGViewer */;
+			targetProxy = C36121731A180191006B0294 /* PBXContainerItemProxy */;
+		};
+		C36121761A180191006B0294 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C346BC9C19FC977E00DC8746 /* SVGViewer3D */;
+			targetProxy = C36121751A180191006B0294 /* PBXContainerItemProxy */;
+		};
+		C361217D1A180191006B0294 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C36121661A180190006B0294 /* SVGViewer */;
+			targetProxy = C361217C1A180191006B0294 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -412,6 +615,78 @@
 			};
 			name = Release;
 		};
+		C36121801A180191006B0294 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SVGViewer/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C36121811A180191006B0294 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SVGViewer/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C36121821A180191006B0294 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SVGViewerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SVGViewer3D.app/SVGViewer3D";
+			};
+			name = Debug;
+		};
+		C36121831A180191006B0294 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SVGViewerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SVGViewer3D.app/SVGViewer3D";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -441,6 +716,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		C36121841A180191006B0294 /* Build configuration list for PBXNativeTarget "SVGViewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C36121801A180191006B0294 /* Debug */,
+				C36121811A180191006B0294 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C36121861A180191006B0294 /* Build configuration list for PBXNativeTarget "SVGViewerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C36121821A180191006B0294 /* Debug */,
+				C36121831A180191006B0294 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

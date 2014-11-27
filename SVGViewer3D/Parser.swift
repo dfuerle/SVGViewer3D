@@ -31,7 +31,7 @@ protocol SVGParserDelegate {
 
 class SVGParser : NSObject, NSXMLParserDelegate {
 
-    let factor: CFloat = 0.001
+    let factor: CFloat = 1
     
     var divDict: NSDictionary?
     var divCharacters: NSMutableString?

@@ -12,7 +12,7 @@ import QuartzCore
 import SceneKit
 import OpenGLES
 
-@objc(DFSceneKitRenderer) class SceneKitRenderer : SCNView, UIGestureRecognizerDelegate, SVGParserDelegate {
+@objc(DFSceneKitRenderer) public class SceneKitRenderer : SCNView, UIGestureRecognizerDelegate, SVGParserDelegate {
 	
 	let factor: CFloat = 0.001
 	var renderingOrder = 1
@@ -23,7 +23,7 @@ import OpenGLES
 	
 	// MARK: Public Methods
 	
-	func loadSVG(fromFileURL fileURL:NSURL) {
+	public func loadSVG(fromFileURL fileURL:NSURL) {
 		// create a new scene
 		let scene = SCNScene()
 		
@@ -101,7 +101,7 @@ import OpenGLES
 	
 	// MARK: UIGestureRecognizerDelegate
 	
-	func gestureRecognizer(UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer:UIGestureRecognizer) -> Bool {
+	public func gestureRecognizer(UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer:UIGestureRecognizer) -> Bool {
 		return true
 	}
 	

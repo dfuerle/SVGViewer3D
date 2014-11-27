@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-@objc(DFSpriteKitRenderer) class SpriteKitRenderer : SKView, UIGestureRecognizerDelegate, SVGParserDelegate {
+@objc(DFSpriteKitRenderer) public class SpriteKitRenderer : SKView, UIGestureRecognizerDelegate, SVGParserDelegate {
 	
 	var cameraNode = SKNode()
 	
@@ -47,7 +47,7 @@ import SpriteKit
 	
 	// MARK: Public Methods
 	
-	func loadSVG(fromFileURL fileURL:NSURL) {
+	public func loadSVG(fromFileURL fileURL:NSURL) {
 		self.showsFPS = true
 		self.showsNodeCount = true
 		
@@ -98,7 +98,7 @@ import SpriteKit
 	
 	// MARK: UIGestureRecognizerDelegate
 	
-	func gestureRecognizer(UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer:UIGestureRecognizer) -> Bool {
+	public func gestureRecognizer(UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer:UIGestureRecognizer) -> Bool {
 		return true
 	}
 	

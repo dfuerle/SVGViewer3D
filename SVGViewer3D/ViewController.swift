@@ -9,6 +9,7 @@
 import UIKit
 import QuartzCore
 import SceneKit
+import SVGViewer
 
 class GameViewController: UIViewController {
 
@@ -17,12 +18,20 @@ class GameViewController: UIViewController {
         
 		let path = NSBundle.mainBundle().pathForResource("test", ofType: "svg")
 		let url = NSURL(fileURLWithPath: path!)
-		if self.view is SVGViewer {
-			let svgViewer = self.view as SVGViewer
-			let startTime = CFAbsoluteTimeGetCurrent()
+
+		let startTime = CFAbsoluteTimeGetCurrent()
+
+//		if self.view is SceneKitRenderer {
+//			let svgViewer = self.view as SceneKitRenderer
+//			svgViewer.loadSVG(fromFileURL: url!)
+//		}
+
+		if self.view is SpriteKitRenderer {
+			let svgViewer = self.view as SpriteKitRenderer
 			svgViewer.loadSVG(fromFileURL: url!)
-			let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
-			println("Time elapsed for loadSVG: \(timeElapsed) s")
 		}
+
+		let timeElapsed = CFAbsoluteTimeGetCurrent() - startTime
+		println("Time elapsed for loadSVG: \(timeElapsed) s")
     }
 }
